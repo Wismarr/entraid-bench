@@ -1,25 +1,22 @@
-# entraid-bench: Microsoft Entra ID Security Assessment Tool
+# Conseinentraid-Chequeo: Herramienta de Chequeo del Microsoft Entra ID Security 
+ 
 
-![screenshot.png](screenshot.png)
+## Visión general
 
+CONSEIN EntraID Bench es un script de PowerShell diseñado para evaluar y mejorar la seguridad del entorno de Microsoft Entra ID mediante la API Graph. Automatiza las comprobaciones de seguridad para garantizar el cumplimiento de CIS Microsoft 365 Foundations Benchmark 3.0.0.
 
-## Overview
+## Funciones
 
-The EntraID Bench is a PowerShell script designed to assess and enhance the security of your Microsoft Entra ID environment using the Graph API. It automates security checks to ensure compliance with CIS Microsoft 365 Foundations Benchmark 3.0.0.
+- **Ejecución de múltiples controles:** Evalúa de manera eficiente varios aspectos de seguridad en una sola ejecución.
+- **Exportación de resultados: ** Genere archivos CSV para análisis e informes detallados.
+- **Diseño modular: ** Fácilmente personalizable para cumplir con requisitos de seguridad específicos.
 
-## Features
+## Requisitos
 
-- **Multiple Control Execution:** Efficiently assess various security aspects in a single run.
-- **Result Export:** Generate CSV files for detailed analysis and reporting.
-- **Modular Design:** Easily customizable to meet specific security requirements.
-
-
-## Requirements
-
-- PowerShell 5.1 or later
+- PowerShell 5.1 o posterior
 - [Microsoft Graph PowerShell module](https://learn.microsoft.com/en-us/powershell/microsoftgraph/installation?view=graph-powershell-1.0) 
 - Entra ID permissions for required Graph API calls:
-
+Permisos de ID de Entra para las llamadas a la API de Graph necesarias
 ```
 'UserAuthenticationMethod.Read.All',
 'User.Read.All',
@@ -29,43 +26,40 @@ The EntraID Bench is a PowerShell script designed to assess and enhance the secu
 'AccessReview.Read.All'
 ```
 
-## Usage
+## Uso
 
-1. Clone this repository to your local machine.
-2. Run the main script: `.\entraid_scanner.ps1`
-3. Review results in generated CSV files.
+1. Clonar este repositorio en el equipo local.
+2. Ejecute el script principal: '.\entraid_scanner.ps1`
+3. Si no posee instalados los prequisitos como el Modulo de NPM o Microsoft.Graph en su equipo, serán instalados. En caso contrario validara que esten instalados y continuara la ejecución.
+4. Solicitará la cuenta para acceder al Tenant del Microsoft ID Entre, la cual debe tener los permisos que arriba se indicaron.
+5. Revisión de los resultados en los archivos CSV generados.
 
-## Controls
+## Evaluación durante la Ejecucón
 
-- Ensure 'Phishing-resistant MFA strength' is required for Administrators
-- Ensure custom banned passwords lists are used
-- Ensure 'Restrict non-admin users from creating tenants' is set to 'Yes'
-- Ensure a dynamic group for guest users is created
-- Ensure Microsoft Authenticator is configured to protect against MFA fatigue
-- Ensure that password hash sync is enabled for hybrid deployments
-- Ensure 'Privileged Identity Management' is used to manage roles
-- Ensure Security Defaults is disabled on Azure Active Directory
-- Enable Azure AD Identity Protection user risk policies
-- Ensure the admin consent workflow is enabled
-- Ensure 'Microsoft Azure Management' is limited to administrative roles
-- Ensure 'LinkedIn account connections' is disabled
-- Ensure password protection is enabled for on-prem Active Directory
-- Ensure Sign-in frequency is enabled and browser sessions are not persistent for Administrative users
-- Ensure third party integrated applications are not allowed
-- Ensure user consent to apps accessing company data on their behalf is not allowed
-- Enable Conditional Access policies to block legacy authentication
-- Ensure 'Self service password reset enabled' is set to 'All'
-- Enable Azure AD Identity Protection sign-in risk policies
-- Ensure multifactor authentication is enabled for all users in administrative roles
-- Ensure multifactor authentication is enabled for all users
+- Asegúrese de que se requiere la "fortaleza de MFA resistente al phishing" para los administradores
+- Asegúrese de que se utilizan listas personalizadas de contraseñas prohibidas
+- Asegúrese de que la opción "Restringir la creación de inquilinos a usuarios que no son administradores" esté establecida en "Sí".
+- Asegúrese de que se crea un grupo dinámico para los usuarios invitados
+- Asegúrese de que Microsoft Authenticator está configurado para proteger contra la fatiga de MFA
+- Asegúrese de que la sincronización de hash de contraseña esté habilitada para implementaciones híbridas
+- Asegúrese de que se utilice "Privileged Identity Management" para administrar roles
+- Asegúrese de que los valores predeterminados de seguridad están deshabilitados en Azure Active Directory
+- Habilitación de directivas de riesgo de usuario de Azure AD Identity Protection
+- Asegúrese de que el flujo de trabajo de consentimiento del administrador esté habilitado
+- Asegúrese de que la "Administración de Microsoft Azure" se limite a los roles administrativos
+- Asegúrese de que las "Conexiones de la cuenta de LinkedIn" estén deshabilitadas
+- Asegúrese de que la protección con contraseña esté habilitada para Active Directory local
+- Asegúrese de que la frecuencia de inicio de sesión esté habilitada y que las sesiones del explorador no sean persistentes para los usuarios administrativos
+- Asegúrese de que no se permitan aplicaciones integradas de terceros
+- Asegúrese de que no se permita el consentimiento del usuario para que las aplicaciones accedan a los datos de la empresa en su nombre.
+- Habilitación de directivas de acceso condicional para bloquear la autenticación heredada
+- Asegúrese de que "Restablecimiento de contraseña de autoservicio habilitado" esté establecido en "Todos"
+- Habilitación de directivas de riesgo de inicio de sesión de Azure AD Identity Protection
+- Asegúrese de que la autenticación multifactor esté habilitada para todos los usuarios con roles administrativos
+- Asegúrese de que la autenticación multifactor esté habilitada para todos los usuarios
 
-## Contributing
+## Contacto
 
-Feel free to contribute, report issues, or suggest enhancements by opening an issue.
+Para preguntas o comentarios, por favor contácteme en wrivas@consein.com 
 
-## Contact
-
-For questions or feedback, please contact me on [LinkedIn](https://www.linkedin.com/in/alaanasser00/)
-
-Thank you for using the Entra ID Security Assessment Tool!
-
+¡Gracias por usar la herramienta de evaluación de seguridad de Consein Entra ID!
