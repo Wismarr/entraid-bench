@@ -5,8 +5,8 @@ function Check-AuthenticationStrength {
 
     try {
 
-        $controlTitle = "Ensure 'Phishing-resistant MFA strength' is required for Administrators"
-        $controlDescription = "Authentication strength is a Conditional Access control that allows administrators to specify which combination of authentication methods can be used to access a resource. For example, they can make only phishing-resistant authentication methods available to access a sensitive resource. But to access a non-sensitive resource, they can allow less secure multifactor authentication (MFA) combinations, such as password + SMS. Microsoft has 3 built-in authentication strengths. MFA strength, Passwordless MFA strength, and Phishing-resistant MFA strength. Ensure administrator roles are using a CA policy with Phishing-resistant MFA strength."
+        $controlTitle = "Asegurese de que los administradores requieran una 'fortaleza MFA resistente al phishing'"
+        $controlDescription = "La fuerza de la autenticacion es un control de acceso condicional que permite a los administradores especificar que combinacion de metodos de autenticacion se pueden utilizar para acceder a un recurso. Por ejemplo, pueden hacer que solo esten disponibles metodos de autenticacion resistentes al phishing para acceder a un recurso confidencial. Pero para acceder a un recurso no confidencial, pueden permitir combinaciones de autenticacion multifactor (MFA) menos seguras, como clave + SMS. Microsoft tiene tres puntos fuertes de autenticación integrados. Fortaleza de MFA, fortaleza de MFA sin clave y fortaleza de MFA resistente a phishing. Asegurese de que los roles de administrador utilicen una politica de CA con solidez de MFA resistente al phishing."
 
         # Retrieve all Conditional Access policies
         $policies = Get-MgIdentityConditionalAccessPolicy | Sort-Object DisplayName
@@ -54,6 +54,6 @@ function Check-AuthenticationStrength {
 
 # Call the function and capture output
 #$results = Check-authenticationStrength | select Control, ControlDescription, Finding, Result
-Check-authenticationStrength 
+Check-AuthenticationStrength 
 # Export to CSV
 #$results | Export-Csv -Path "Check-AuthenticationStrength.csv" -NoTypeInformation

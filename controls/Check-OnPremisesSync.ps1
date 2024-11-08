@@ -4,8 +4,8 @@ function Check-OnPremisesSync {
 
     try {
 
-        $controlTitle = "Ensure that password hash sync is enabled for hybrid deployments"
-        $controlDescription = "Password hash synchronization helps by reducing the number of passwords your users need to maintain to just one and enables leaked credential detection for your hybrid accounts. Leaked credential protection is leveraged through Azure AD Identity Protection and is a subset of that feature which can help identify if an organization's user account passwords have appeared on the dark web or public spaces. Using other options for your directory synchronization may be less resilient as Microsoft can still process sign-ins to 365 with Hash Sync even if a network connection to your on-premises environment is not available."
+        $controlTitle = "Asegurese de que la sincronizacion de hash de contraseña esté habilitada para implementaciones hibridas"
+        $controlDescription = "La sincronizacion de hash de contraseñas ayuda a reducir la cantidad de claves o passwords para que sus usuarios deben mantener a solo una y permite la deteccion de credenciales filtradas para sus cuentas híbridas. La proteccion de credenciales filtradas se aprovecha a traves de Azure AD Identity Protection y es un subconjunto de esa caracteristica que puede ayudar a identificar si las claves de las cuentas de usuario de una organizacion han aparecido en la web oscura o en espacios publicos. El uso de otras opciones para la sincronizacion de directorios puede ser menos resistente, ya que Microsoft aun puede procesar inicios de sesion en 365 con Hash Sync incluso si no hay disponible una conexion de red a su entorno local."
     
         $organization = Get-MgOrganization
         $OnPremisesSyncEnabled = $organization.OnPremisesSyncEnabled

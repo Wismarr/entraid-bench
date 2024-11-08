@@ -4,12 +4,12 @@ function Check-SecurityDefaultStatus {
 
     try {
 
-        $controlTitle = "Ensure Security Defaults is disabled on Azure Active Directory"
-        $controlDescription = "Security defaults provide secure default settings that are managed on behalf of organizations to keep customers safe until they are ready to manage their own identity security settings.
-        For example, doing the following:
-        • Requiring all users and admins to register for MFA.
-        • Challenging users with MFA - mostly when they show up on a new device or app, but more often for critical roles and tasks.
-        • Disabling authentication from legacy authentication clients, which can’t do MFA."
+        $controlTitle = "Asegurese de que los valores predeterminados de seguridad estén deshabilitados en Azure Active Directory"
+        $controlDescription = "Los valores predeterminados de seguridad proporcionan configuraciones predeterminadas seguras que se administran en nombre de las organizaciones para mantener a los clientes seguros hasta que estén listos para administrar sus propias configuraciones de seguridad de identidad.
+        Por ejemplo, haciendo lo siguiente:
+        • Requerir que todos los usuarios y administradores se registren en MFA.
+        • Desafiar a los usuarios con MFA, principalmente cuando aparecen en un nuevo dispositivo o aplicación, pero más a menudo para roles y tareas criticas.
+        • Deshabilitar la autenticacion de clientes de autenticacion heredados, que no pueden realizar MFA."
 
         # Get Security Defaults policy and check if it's disabled
         $securityDefaultsPolicy = Get-MgPolicyIdentitySecurityDefaultEnforcementPolicy | Select-Object -ExpandProperty IsEnabled

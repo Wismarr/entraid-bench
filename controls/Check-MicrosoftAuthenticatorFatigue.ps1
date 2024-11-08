@@ -5,11 +5,11 @@ function Check-MicrosoftAuthenticatorFatigue {
 
     try {
 
-        $controlTitle = "Ensure Microsoft Authenticator is configured to protect against MFA fatigue"
-        $controlDescription = "Microsoft has released additional settings to enhance the configuration of the Microsoft Authenticator application. These settings provide additional information and context to users who receive MFA passwordless and push requests, such as geographic location the request came from, the requesting application and requiring a number match. Ensure the following are Enabled.
-        • Require number matching for push notifications
-        • Show application name in push and passwordless notifications
-        • Show geographic location in push and passwordless notifications"
+        $controlTitle = "Asegurese de que Microsoft Authenticator este configurado para proteger contra la fatiga de MFA"
+        $controlDescription = "Microsoft ha publicado configuraciones adicionales para mejorar la configuracion de la aplicacion Microsoft Authenticator. Estas configuraciones brindan informacion adicional y contexto a los usuarios que reciben solicitudes push y sin clave de MFA, como la ubicacion geográfica de donde proviene la solicitud, la aplicacion solicitante y la solicitud de una coincidencia numerica. Asegurese de que lo siguiente este habilitado.
+        • Requerir coincidencia de números para notificaciones automáticas
+        • Mostrar el nombre de la aplicación en notificaciones push y sin contraseña
+        • Mostrar ubicación geográfica en notificaciones push y sin contraseña"
     
         # Retrieve configuration for Microsoft Authenticator
         $authenticatorConfig = Get-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration -AuthenticationMethodConfigurationId MicrosoftAuthenticator

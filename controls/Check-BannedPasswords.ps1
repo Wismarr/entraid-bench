@@ -4,8 +4,8 @@ function Check-BannedPasswordSettings {
 
     try {
 
-        $controlTitle = "Ensure custom banned passwords lists are used"
-        $controlDescription = "Creating a new password can be difficult regardless of one's technical background. It is common to look around one's environment for suggestions when building a password, however, this may include picking words specific to the organization as inspiration for a password. An adversary may employ what is called a 'mangler' to create permutations of these specific words in an attempt to crack passwords or hashes making it easier to reach their goal."
+        $controlTitle = "Asegurese de que se utilicen listas personalizadas de claves prohibidas"
+        $controlDescription = "Crear una nueva clave puede resultar dificil independientemente de los conocimientos tecnicos que se tengan. Es comun buscar sugerencias en el entorno al crear una clave; sin embargo, esto puede incluir elegir palabras especificas de la organizacion como inspiracion para una clave. Un adversario puede emplear lo que se llama un 'mangler' para crear permutaciones de estas palabras especificas en un intento de descifrar claves o hashes para facilitar el logro de su objetivo."
     
         # Retrieve the group setting
         $groupSetting = Get-MgGroupSetting
@@ -20,7 +20,7 @@ function Check-BannedPasswordSettings {
             $bannedPasswordListValue = $groupSetting.Values | Where-Object { $_.Name -eq "BannedPasswordList" }
 
             # Check if BannedPasswordList is empty
-            if ($bannedPasswordListValue.Value -eq $null -or $bannedPasswordListValue.Value.Count -eq 0) {
+            if ($null -eq $bannedPasswordListValue.Value -or $bannedPasswordListValue.Value.Count -eq 0) {
                 $controlFinding = "Custom banned passwords setting is enabled but the list of passwords is empty."
                 return [PSCustomObject]@{
                     Control            = $controlTitle
