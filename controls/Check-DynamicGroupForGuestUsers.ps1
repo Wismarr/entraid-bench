@@ -15,18 +15,18 @@ function Check-DynamicGroupForGuestUsers {
         $allUsersDynamicGroups = $groups | Where-Object { $_.MembershipRule -notlike "*user.userType -eq `"`All Users`"*" }
 
         if ($guestDynamicGroups) {
-            $controlFinding = "Dynamic group for guest users found."
-            $controlResult = "COMPLIANT"
+            $controlFinding = "Se encontro un grupo dinamico para usuarios invitados."
+            $controlResult = "EN CUMPLIMIENTO"
             $findingDetails = $guestDynamicGroups | Select-Object DisplayName, GroupTypes, MembershipRule
         }
         elseif ($allUsersDynamicGroups) {
-            $controlFinding = "Dynamic group for all users found."
-            $controlResult = "COMPLIANT"
+            $controlFinding = "Grupo dinamico para todos los usuarios encontrados."
+            $controlResult = "EN CUMPLIMIENTO"
             $findingDetails = $allUsersDynamicGroups | Select-Object DisplayName, GroupTypes, MembershipRule
         }
         else {
-            $controlFinding = "No dynamic group for guest users found."
-            $controlResult = "NOT COMPLIANT"
+            $controlFinding = "No se encontro ningún grupo dinamico para usuarios invitados."
+            $controlResult = "NO CUMPLE"
             $findingDetails = $notguestDynamicGroups | Select-Object DisplayName, GroupTypes, MembershipRule
         }
 

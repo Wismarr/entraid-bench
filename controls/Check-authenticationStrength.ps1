@@ -16,8 +16,8 @@ function Check-AuthenticationStrength {
 
             if ($authenticationStrength.id -eq "00000000-0000-0000-0000-000000000004") {
                 # Phishing-resistant MFA Authentication strength is enabled, output details and stop
-                $controlFinding = "Phishing-resistant MFA strength is enabled for administrators."
-                $controlResult = "COMPLIANT"
+                $controlFinding = "La fortaleza de MFA resistente al phishing esta habilitada para los administradores."
+                $controlResult = "EN CUMPLIMIENTO"
 
                 return [PSCustomObject]@{
                     Control                  = $controlTitle
@@ -35,8 +35,8 @@ function Check-AuthenticationStrength {
         }
 
         # No policies with phishing-resistant MFA strength found for administrators
-        $controlFinding = "No policies with phishing-resistant MFA strength found for administrators."
-        $controlResult = "NOT COMPLIANT"
+        $controlFinding = "No se encontraron politicas con fortaleza MFA resistente al phishing para administradores."
+        $controlResult = "NO CUMPLE"
 
         return [PSCustomObject]@{
             Control            = $controlTitle

@@ -15,12 +15,12 @@ function Check-SecurityDefaultStatus {
         $securityDefaultsPolicy = Get-MgPolicyIdentitySecurityDefaultEnforcementPolicy | Select-Object -ExpandProperty IsEnabled
 
         if ($securityDefaultsPolicy -eq $true) {
-            $controlFinding = "Security Defaults are enabled."
-            $controlResult = "NOT COMPLIANT"
+            $controlFinding = "Los valores predeterminados de seguridad estan habilitados."
+            $controlResult = "NO CUMPLE"
         }
         else {
-            $controlFinding = "Security Defaults are disabled."
-            $controlResult = "COMPLIANT"
+            $controlFinding = "Los valores predeterminados de seguridad están deshabilitados."
+            $controlResult = "EN CUMPLIMIENTO"
         }
 
         return [PSCustomObject]@{

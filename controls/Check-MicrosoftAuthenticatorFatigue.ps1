@@ -16,13 +16,13 @@ function Check-MicrosoftAuthenticatorFatigue {
         
         # Check if Microsoft Authenticator is disabled
         if ($authenticatorConfig.State -eq "disabled") {
-            $controlFinding = "Microsoft Authenticator is disabled."
+            $controlFinding = "Microsoft Authenticator esta deshabilitado."
 
             return [PSCustomObject]@{
                 Control               = $controlTitle
                 ControlDescription    = $controlDescription
                 Finding               = $controlFinding
-                Result                = "NOT COMPLIANT"
+                Result                = "NO CUMPLE"
             }
         } 
         
@@ -33,23 +33,23 @@ function Check-MicrosoftAuthenticatorFatigue {
         $displayAppInformationRequiredState = $featureSettings.displayAppInformationRequiredState
 
         if ($numberMatchingRequiredState.State -eq "enabled" -And $displayLocationInformationRequiredState.State -eq "enabled" -And $displayAppInformationRequiredState.State -eq "enabled" ) {
-            $controlFinding = "Microsoft Authenticator is configured to be resistant to MFA fatigue."
+            $controlFinding = "Microsoft Authenticator esta configurado para ser resistente a la fatiga de MFA."
 
             return [PSCustomObject]@{
                 Control               = $controlTitle
                 ControlDescription    = $controlDescription
                 Finding               = $controlFinding
-                Result                = "COMPLIANT"
+                Result                = "EN CUMPLIMIENTO"
             }
 
         } else {
-            $controlFinding = "Microsoft Authenticator is not configured to be resistant to MFA fatigue."
+            $controlFinding = "Microsoft Authenticator no esta configurado para ser resistente a la fatiga de MFA."
 
             return [PSCustomObject]@{
                 Control               = $controlTitle
                 ControlDescription    = $controlDescription
                 Finding               = $controlFinding
-                Result                = "NOT COMPLIANT"
+                Result                = "NO CUMPLE"
             }
              
         }

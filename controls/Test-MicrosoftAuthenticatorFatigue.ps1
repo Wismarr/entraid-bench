@@ -5,24 +5,24 @@ function Test-MicrosoftAuthenticatorFatigue {
 
     try {
 
-        $controlTitle = "Ensure Microsoft Authenticator is configured to protect against MFA fatigue"
-        $controlDescription = "Microsoft has released additional settings to enhance the configuration of the Microsoft Authenticator application. These settings provide additional information and context to users who receive MFA passwordless and push requests, such as geographic location the request came from, the requesting application and requiring a number match. Ensure the following are Enabled.
-        • Require number matching for push notifications
-        • Show application name in push and passwordless notifications
-        • Show geographic location in push and passwordless notifications"
+        $controlTitle = "Asegurese de que Microsoft Authenticator este configurado para proteger contra la fatiga de MFA"
+        $controlDescription = "Microsoft ha publicado configuraciones adicionales para mejorar la configuracion de la aplicacion Microsoft Authenticator. Estas configuraciones brindan informacion adicional y contexto a los usuarios que reciben solicitudes push y sin contraseña de MFA, como la ubicacion geografica de donde proviene la solicitud, la aplicacion solicitante y la solicitud de una coincidencia numerica. Asegurese de que lo siguiente este habilitado.
+        • Requerir coincidencia de numeros para notificaciones automaticas
+        • Mostrar el nombre de la aplicacion en notificaciones push y sin clave
+        • Mostrar ubicacion geográfica en notificaciones push y sin clave"
     
         # Retrieve configuration for Microsoft Authenticator
         $authenticatorConfig = Get-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration -AuthenticationMethodConfigurationId MicrosoftAuthenticator
         
         # Check if Microsoft Authenticator is disabled
         if ($authenticatorConfig.State -eq "disabled") {
-            $controlFinding = "Microsoft Authenticator is disabled."
+            $controlFinding = "Microsoft Authenticator esta deshabilitado."
 
             return [PSCustomObject]@{
                 Control               = $controlTitle
                 ControlDescription    = $controlDescription
                 Finding               = $controlFinding
-                Result                = "NOT COMPLIANT"
+                Result                = "NO CUMPLE"
             }
         } 
         
@@ -33,23 +33,23 @@ function Test-MicrosoftAuthenticatorFatigue {
         $displayAppInformationRequiredState = $featureSettings.displayAppInformationRequiredState
 
         if ($numberMatchingRequiredState.State -eq "enabled" -And $displayLocationInformationRequiredState.State -eq "enabled" -And $displayAppInformationRequiredState.State -eq "enabled" ) {
-            $controlFinding = "Microsoft Authenticator is configured to be resistant to MFA fatigue."
+            $controlFinding = "Microsoft Authenticator esta configurado para ser resistente a la fatiga de MFA."
 
             return [PSCustomObject]@{
                 Control               = $controlTitle
                 ControlDescription    = $controlDescription
                 Finding               = $controlFinding
-                Result                = "COMPLIANT"
+                Result                = "EN CUMPLIMIENTO"
             }
 
         } else {
-            $controlFinding = "Microsoft Authenticator is not configured to be resistant to MFA fatigue."
+            $controlFinding = "Microsoft Authenticator no está configurado para ser resistente a la fatiga de MFA."
 
             return [PSCustomObject]@{
                 Control               = $controlTitle
                 ControlDescription    = $controlDescription
                 Finding               = $controlFinding
-                Result                = "NOT COMPLIANT"
+                Result                = "NO CUMPLE"
             }
              
         }

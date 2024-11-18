@@ -4,8 +4,8 @@ function Test-PermanentActiveAssignments {
 
     try {
 
-        $controlTitle = "Ensure 'Privileged Identity Management' is used to manage roles"
-        $controlDescription = "Azure Active Directory Privileged Identity Management can be used to audit roles, allow just in time activation of roles and allow for periodic role attestation. Organizations should remove permanent members from privileged Office 365 roles and instead make them eligible, through a JIT activation workflow."
+        $controlTitle = "Asegurese de que se utilice 'Gestion de identidad privilegiada' para gestionar roles"
+        $controlDescription = "Azure Active Directory Privileged Identity Management se puede utilizar para auditar roles, permitir la activacion de roles justo a tiempo y permitir la certificacion periodica de roles. Las organizaciones deben eliminar a los miembros permanentes de las funciones privilegiadas de Office 365 y, en su lugar, hacerlos elegibles mediante un flujo de trabajo de activación JIT."
 
         # Get permanent (no endDateTime) active role assignments
         $permanentActiveAssignments = Get-MgRoleManagementDirectoryRoleAssignmentScheduleInstance | Where-Object { $null -eq $_.EndDateTime } | Select-Object AssignmentType, PrincipalId, RoleDefinitionId, StartDateTime, EndDateTime
@@ -24,7 +24,7 @@ function Test-PermanentActiveAssignments {
         }
 
         if ($permanentActiveAssignments) {
-            $controlFinding = "Permanent active role assignments found."
+            $controlFinding = "Se encontraron asignaciones de roles activos permanentes."
             
             $FindingDetails = $permanentActiveAssignments | ForEach-Object {
                 [PSCustomObject]@{
@@ -42,8 +42,8 @@ function Test-PermanentActiveAssignments {
                 Control            = $controlTitle
                 ControlDescription = $controlDescription
                 Finding            = $controlFinding
-                Result             = "NOT COMPLIANT"
-                FindingDetails     = "Please visit the PermanentActiveAssignments.csv"
+                Result             = "NO CUMPLE"
+                FindingDetails     = "Por favor revise el PermanentActiveAssignments.csv"
                 <# FindingDetails     = $permanentActiveAssignments | ForEach-Object {
                     Write-Host "AssignmentType: $($_.AssignmentType)"
                     Write-Host "Principal: $($userIdNameMap[$_.PrincipalId])"
@@ -55,13 +55,13 @@ function Test-PermanentActiveAssignments {
             
         }
         else {
-            $controlFinding = "No permanent active role assignments found."
+            $controlFinding = "No se encontraron asignaciones de roles activos permanentes."
 
             return [PSCustomObject]@{
                 Control            = $controlTitle
                 ControlDescription = $controlDescription
                 Finding            = $controlFinding
-                Result             = "COMPLIANT"
+                Result             = "EN CUMPLIMIENTO"
             }
         }
     }

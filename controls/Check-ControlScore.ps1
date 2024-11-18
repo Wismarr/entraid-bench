@@ -24,10 +24,10 @@ function Check-ControlScore {
         $controlScore = Get-MgSecuritySecureScore | Select-Object -First 1 -ExpandProperty ControlScores | Where-Object { $_.ControlName -eq $controlName }    
     
         if ($controlName -eq "mfaRegistrationV2") {
-            $controlProfileName = "Ensure multifactor authentication is enabled for all users"
+            $controlProfileName = "Asegurese de que la autenticacion multifactor este habilitada para todos los usuarios."
         }
         elseif ($controlName -eq "adminMFAV2") {
-            $controlProfileName = "Ensure multifactor authentication is enabled for all users in administrative roles"
+            $controlProfileName = "Asegurese de que la autenticacion multifactor este habilitada para todos los usuarios con funciones administrativas"
         }
         else {
             $controlProfile = Get-MgSecuritySecureScoreControlProfile -SecureScoreControlProfileId $controlName 
@@ -51,7 +51,7 @@ function Check-ControlScore {
         $controlTotal = $AdditionalProperties['total']
         $controlScoreInPercentage = $AdditionalProperties['scoreInPercentage']
 
-        $complianceResult = if ($controlScoreInPercentage -eq "100" -Or $controlScoreInPercentage -eq "100.00") { "COMPLIANT" } else { "NOT COMPLIANT" }
+        $complianceResult = if ($controlScoreInPercentage -eq "100" -Or $controlScoreInPercentage -eq "100.00") { "EN CUMPLIMIENTO" } else { "NO CUMPLE" }
 
 
         [PSCustomObject]@{

@@ -12,11 +12,11 @@ function Check-OnPremisesSync {
         $OnPremisesLastSyncDateTime = $organization.OnPremisesLastSyncDateTime
 
         if ($OnPremisesSyncEnabled) {
-            $controlFinding = "On-Premises Sync is enabled."
-            $complianceResult = "COMPLIANT"
+            $controlFinding = "La sincronizacion local esta habilitada."
+            $complianceResult = "EN CUMPLIMIENTO"
         } else {
-            $controlFinding = "On-Premises Sync is not enabled."
-            $complianceResult = "NOT COMPLIANT"
+            $controlFinding = "La sincronización local no está habilitada."
+            $complianceResult = "NO CUMPLE"
         }
 
         return [PSCustomObject]@{

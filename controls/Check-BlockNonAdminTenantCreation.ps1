@@ -14,11 +14,11 @@ function Check-BlockNonAdminTenantCreation {
         $allowedToCreateTenants = $defaultUserRolePermissions | Select-Object -ExpandProperty AllowedToCreateTenants
 
         if ($allowedToCreateTenants -eq "Yes") {
-            $controlFinding =  "Non-admin users are restricted from creating tenants"
-            $controlResult = "COMPLIANT"
+            $controlFinding =  "Los usuarios no administradores no pueden crear Tenants"
+            $controlResult = "EN CUMPLIMIENTO"
         } else {
-            $controlFinding =  "Non-admin users are NOT restricted from creating tenants"
-            $controlResult = "NOT COMPLIANT"
+            $controlFinding =  "Los usuarios no administradores NO tienen restricciones para crear Tenants"
+            $controlResult = "NO CUMPLE"
         }
 
         return [PSCustomObject]@{

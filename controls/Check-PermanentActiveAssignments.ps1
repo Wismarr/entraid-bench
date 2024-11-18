@@ -24,7 +24,7 @@ function Check-PermanentActiveAssignments {
         }
 
         if ($permanentActiveAssignments) {
-            $controlFinding = "Permanent active role assignments found."
+            $controlFinding = "Se encontraron asignaciones de roles activos permanentes."
             
             $FindingDetails = $permanentActiveAssignments | ForEach-Object {
                 [PSCustomObject]@{
@@ -42,8 +42,8 @@ function Check-PermanentActiveAssignments {
                 Control            = $controlTitle
                 ControlDescription = $controlDescription
                 Finding            = $controlFinding
-                Result             = "NOT COMPLIANT"
-                FindingDetails     = "Please visit the PermanentActiveAssignments.csv"
+                Result             = "NO CUMPLE"
+                FindingDetails     = "Por favor revise el PermanentActiveAssignments.csv"
                 <# FindingDetails     = $permanentActiveAssignments | ForEach-Object {
                     Write-Host "AssignmentType: $($_.AssignmentType)"
                     Write-Host "Principal: $($userIdNameMap[$_.PrincipalId])"
@@ -55,13 +55,13 @@ function Check-PermanentActiveAssignments {
             
         }
         else {
-            $controlFinding = "No permanent active role assignments found."
+            $controlFinding = "No se encontraron asignaciones de roles activos permanentes."
 
             return [PSCustomObject]@{
                 Control            = $controlTitle
                 ControlDescription = $controlDescription
                 Finding            = $controlFinding
-                Result             = "COMPLIANT"
+                Result             = "EN CUMPLIMIENTO"
             }
         }
     }

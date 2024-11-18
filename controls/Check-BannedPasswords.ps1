@@ -21,31 +21,31 @@ function Check-BannedPasswordSettings {
 
             # Check if BannedPasswordList is empty
             if ($null -eq $bannedPasswordListValue.Value -or $bannedPasswordListValue.Value.Count -eq 0) {
-                $controlFinding = "Custom banned passwords setting is enabled but the list of passwords is empty."
+                $controlFinding = "La configuración de claves prohibidas personalizadas esta habilitada pero la lista de claves está vacia."
                 return [PSCustomObject]@{
                     Control            = $controlTitle
                     ControlDescription = $controlDescription
                     Finding            = $controlFinding
-                    Result             = "NOT COMPLIANT"
+                    Result             = "NO CUMPLE"
                 }
             }
             else {            
-                $controlFinding = "Custom banned passwords setting is enabled and the list of passwords is configured."
+                $controlFinding = "La configuracion de claves prohibidas personalizadas esta habilitada y la lista de claves esta configurada."
                 return [PSCustomObject]@{
                     Control            = $controlTitle
                     ControlDescription = $controlDescription
                     Finding            = $controlFinding
-                    Result             = "COMPLIANT"
+                    Result             = "EN CUMPLIMIENTO"
                 }
             }
         }
         else {
-            $controlFinding = "Custom banned passwords setting is disabled."
+            $controlFinding = "La configuracion de claves prohibidas personalizadas esta deshabilitada."
             return [PSCustomObject]@{
                 Control            = $controlTitle
                 ControlDescription = $controlDescription
                 Finding            = $controlFinding
-                Result             = "NOT COMPLIANT"
+                Result             = "NO CUMPLE"
             }
         }
     }
