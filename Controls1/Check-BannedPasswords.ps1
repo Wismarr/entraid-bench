@@ -21,7 +21,7 @@ function Check-BannedPasswordSettings {
 
             # Check if BannedPasswordList is empty
             if ($null -eq $bannedPasswordListValue.Value -or $bannedPasswordListValue.Value.Count -eq 0) {
-                $controlFinding = "La configuración de claves prohibidas personalizadas esta habilitada pero la lista de claves esta vacia."
+                $controlFinding = "La configuracion de claves prohibidas personalizadas esta habilitada pero la lista de claves esta vacia."
                 return [PSCustomObject]@{
                     Control            = $controlTitle
                     ControlDescription = $controlDescription

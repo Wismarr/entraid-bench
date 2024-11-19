@@ -71,7 +71,7 @@ function Check-ControlScore {
 # Call the function with the array of control names
 Check-ControlScore
 
-$results = Check-ControlScore | Select-Object Control, ControlDescription, Finding, OnPremisesSyncEnabled, LastSyncDateTime, DynamicGroupName, DynamicGroupTypes, DynamicGroupMembershipRule, Result
+#$results = Check-ControlScore | Select Control, ControlDescription, Finding, OnPremisesSyncEnabled, LastSyncDateTime, DynamicGroupName, DynamicGroupTypes, DynamicGroupMembershipRule, Result
 
 # Process the results (e.g., export to CSV)
-$results | Export-Csv -Path "combined_data.csv" -NoTypeInformation
+#$results | Export-Csv -Path "combined_data.csv" -NoTypeInformation

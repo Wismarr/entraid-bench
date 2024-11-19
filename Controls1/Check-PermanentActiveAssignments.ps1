@@ -4,8 +4,8 @@ function Check-PermanentActiveAssignments {
 
     try {
 
-        $controlTitle = "Asegurese de que se utilice 'Gestion de identidad privilegiada' para gestionar roles"
-        $controlDescription = "Azure Active Directory Privileged Identity Management se puede utilizar para auditar roles, permitir la activacion de roles justo a tiempo y permitir la certificacion periodica de roles. Las organizaciones deben eliminar a los miembros permanentes de los roles privilegiados de Office 365 y, en su lugar, hacerlos elegibles, a traves de un flujo de trabajo de activación JIT."
+        $controlTitle = "Asegúrese de que se utilice 'Gestion de identidad privilegiada' para gestionar roles"
+        $controlDescription = "Azure Active Directory Privileged Identity Management se puede utilizar para auditar roles, permitir la activación de roles justo a tiempo y permitir la certificacion periodica de roles. Las organizaciones deben eliminar a los miembros permanentes de los roles privilegiados de Office 365 y, en su lugar, hacerlos elegibles, a traves de un flujo de trabajo de activación JIT."
 
         # Get permanent (no endDateTime) active role assignments
         $permanentActiveAssignments = Get-MgRoleManagementDirectoryRoleAssignmentScheduleInstance | Where-Object { $null -eq $_.EndDateTime } | Select-Object AssignmentType, PrincipalId, RoleDefinitionId, StartDateTime, EndDateTime
