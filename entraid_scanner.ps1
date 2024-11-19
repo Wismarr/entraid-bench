@@ -103,4 +103,4 @@ $completedControls = 0
     }
 
     $allResults | Export-Csv -Path "scan_results.csv" -NoTypeInformation
-    Write-Host "¡Ejecucion del script completada! Todos los resultados se combinaron y exportaron a scan_results.csv." -ForegroundColor Green
+    Write-Host "`n¡Ejecucion del script completada! Todos los resultados se combinaron y exportaron a scan_results.csv." -ForegroundColor Green
