@@ -58,9 +58,9 @@ function Check-ControlScore {
             Control            = $controlProfileName
             ControlDescription = $controlDescription
             Finding            = $controlFinding
-            # ScoreInPercentage  = $controlScoreInPercentage
-            # Count              = $controlCount
-            # Total              = $controlTotal
+            ScoreInPercentage  = $controlScoreInPercentage
+            Count              = $controlCount
+            Total              = $controlTotal
             Result             = $complianceResult
         }
     }
