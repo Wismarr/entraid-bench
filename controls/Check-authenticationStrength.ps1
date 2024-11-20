@@ -53,7 +53,7 @@ function Check-AuthenticationStrength {
 
 
 # Call the function and capture output
-#$results = Check-authenticationStrength | select Control, ControlDescription, Finding, Result
+$results = Check-authenticationStrength | Select-Object Control, ControlDescription, Finding, Result
 Check-AuthenticationStrength 
 # Export to CSV
-#$results | Export-Csv -Path "Check-AuthenticationStrength.csv" -NoTypeInformation
+$results | Export-Csv -Path "Check-AuthenticationStrength.csv" -NoTypeInformation
